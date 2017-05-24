@@ -6,8 +6,8 @@ const yosay = require('yosay');
 const inquirer = require('inquirer');
 const walkSync = require('walk-sync');
 
-const isCamelized = (name) =>
-  /^[A-X][a-z]+([A-Z][a-z]+)*/g.test(name);
+const isCamelCase = (name) =>
+  /^[A-Z][A-Za-z]+$/g.test(name);
 
 module.exports = class extends Generator {
   prompting() {
@@ -22,8 +22,8 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'componentName',
       message: 'Type a name for the new component:',
-      validate: (value) => {
-        if (!isCamelized(value)) {
+      validate: (name) => {
+        if (!isCamelCase(name)) {
           this.log(
             chalk.red('\nComponent name should use CamelCase notation! Example: NotBadComponent')
           );
