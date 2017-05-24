@@ -1,5 +1,5 @@
 const path = require('path');
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 
@@ -9,8 +9,8 @@ const walkSync = require('walk-sync');
 const isCamelized = (name) =>
   /^[A-X][a-z]+([A-Z][a-z]+)*/g.test(name);
 
-module.exports = yeoman.generators.Base.extend({
-  prompting: function() {
+module.exports = class extends Generator {
+  prompting() {
     const continueYo = this.async();
 
     // Have Yeoman greet the user.
@@ -84,13 +84,13 @@ module.exports = yeoman.generators.Base.extend({
       default: 'css'
     }];
 
-    this.prompt(prompts, props => {
+    this.prompt(prompts).then(props => {
       this.props = props;
       continueYo();
     });
-  },
+  }
 
-  writing: function() {
+  writing() {
     const {
       componentPath,
       componentName,
@@ -134,4 +134,4 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
   }
-});
+};
