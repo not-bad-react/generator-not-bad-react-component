@@ -25,6 +25,7 @@ Then add special script inside `package.json`, similar to
 }
 ...
 ```
+So everybody in your team can just type `npm run scaffold:component` in order to create a folder for the new React component.
 
 ## What To Expect
 
@@ -40,3 +41,6 @@ The structure of the component folder is a little bit excessive:
 ## Roadmap
 - redux support
 - Jest support
+
+## Ancestor
+https://github.com/booxood/generator-react-new-component
