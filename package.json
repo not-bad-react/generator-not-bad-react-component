@@ -1,6 +1,6 @@
 {
   "name": "generator-not-bad-react-component",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "yeoman generator for react component folder",
   "main": "index.js",
   "engines": {
