@@ -1,0 +1,29 @@
+{
+  "name": "generator-not-bad-react-component",
+  "version": "1.0.0",
+  "description": "yeoman generator for react component folder",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6.10.3",
+    "npm": ">=4.5.0"
+  },
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "react",
+    "component",
+    "es6"
+  ],
+  "dependencies": {
+    "chalk": "1.0.0",
+    "inquirer": "0.12.0",
+    "walk-sync": "0.2.6",
+    "yosay": "1.0.2",
+    "yeoman-generator": "0.21.1"
+  },
+  "author": "Ivan Kotov",
+  "license": "MIT"
+}

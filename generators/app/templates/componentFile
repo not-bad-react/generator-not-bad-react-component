@@ -1,0 +1,37 @@
+import React, { PureComponent } from 'react';
+<% if (propsRequired) { %>
+import { PropTypes } from 'prop-types';
+<% } %><% if (needStylesheet) { %>
+const style = import('./<%= stylesheetFile %>')
+<% } %>
+<% if (stateRequired) { %>
+class <%= componentName %> extends PureComponent {
+  state = {
+    ,
+  }
+
+  render () {
+    return (
+      <div <% if (needStylesheet) { %>className={style.<%= componentName %>}<% } %>>
+        <h4>Modify component <%= componentName %> </h4>
+      </div>
+    )
+  }
+}
+<% } else { %>
+const <%= componentName %> = ({}) => (
+  <div <% if (needStylesheet) { %>className={style.<%= componentName %>}<% } %>>
+    <h4>Modify component <%= componentName %> </h4>
+  </div>
+);
+<% } %>
+
+<% if (propsRequired) { %>
+<%= componentName %>.propTypes = {
+  ,
+}
+<%= componentName %>.defaultProps = {
+  ,
+}
+<% } %>
+export default <%= componentName %>
