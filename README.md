@@ -15,7 +15,7 @@ npm i -g yo
 ```
 Add Not Bad generator to dev dependencies for your React-based project:
 ```
-npm i --save-dep generator-not-bad-react-component
+npm i --save-dev generator-not-bad-react-component
 ```
 Then add special script inside `package.json`, similar to
 ```
