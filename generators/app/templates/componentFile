@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React<% if (stateRequired) { %>, { PureComponent }<% } %> from 'react';
 <% if (propsRequired) { %>
 import { PropTypes } from 'prop-types';
 <% } %><% if (needStylesheet) { %>
@@ -24,13 +24,12 @@ const <%= componentName %> = ({}) => (
   </div>
 );
 <% } %>
-
 <% if (propsRequired) { %>
 <%= componentName %>.propTypes = {
   ,
-}
+};
 <%= componentName %>.defaultProps = {
   ,
-}
+};
 <% } %>
 export default <%= componentName %>;
