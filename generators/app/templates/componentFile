@@ -2,7 +2,7 @@ import React<% if (stateRequired) { %>, { PureComponent }<% } %> from 'react';
 <% if (propsRequired) { %>
 import { PropTypes } from 'prop-types';
 <% } %><% if (needStylesheet) { %>
-import style from './<%= stylesheetFile %>';
+import styles from './<%= stylesheetFile %>';
 <% } %>
 <% if (stateRequired) { %>
 class <%= componentName %> extends PureComponent {
@@ -11,7 +11,7 @@ class <%= componentName %> extends PureComponent {
 
   render() {
     return (
-      <div <% if (needStylesheet) { %>className={style.<%= componentName %>}<% } %>>
+      <div <% if (needStylesheet) { %>className={styles.<%= componentName %>}<% } %>>
         <h4>Modify component <%= componentName %> </h4>
       </div>
     );
@@ -19,7 +19,7 @@ class <%= componentName %> extends PureComponent {
 }
 <% } else { %>
 const <%= componentName %> = ({}) => (
-  <div <% if (needStylesheet) { %>className={style.<%= componentName %>}<% } %>>
+  <div <% if (needStylesheet) { %>className={styles.<%= componentName %>}<% } %>>
     <h4>Modify component <%= componentName %> </h4>
   </div>
 );
