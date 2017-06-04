@@ -5,6 +5,7 @@
 - An option to use stateless component
 - An option to omit props even
 - An option to choose files extensions
+- Ability to add Jest spec file
 - ES6 syntax for the component
 
 ## How To Use
@@ -33,6 +34,8 @@ The structure of the component folder is a little bit excessive:
 ```
 /components
 |-- UiComponent
+|  |--  __tests__
+|  |   `-- UiComponent.spec.jsx
 |  |-- UiComponent.css
 |  |-- UiComponent.jsx
 |  `-- index.js
@@ -40,7 +43,7 @@ The structure of the component folder is a little bit excessive:
 
 ## Roadmap
 - redux support
-- Jest support
+- ✅ Jest support
 
 ## Ancestor
 https://github.com/booxood/generator-react-new-component
