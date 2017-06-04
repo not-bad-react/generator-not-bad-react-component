@@ -1,11 +1,14 @@
 import React<% if (stateRequired) { %>, { PureComponent }<% } %> from 'react';
-<% if (propsRequired) { %>
-import { PropTypes } from 'prop-types';
-<% } %><% if (needStylesheet) { %>
+<%
+if (propsRequired) {
+%>import { PropTypes } from 'prop-types';<%
+} %><% if (needStylesheet) {
+%>
 import styles from './<%= stylesheetFile %>';
-<% } %>
-<% if (stateRequired) { %>
-class <%= componentName %> extends PureComponent {
+
+<%
+} %><% if (stateRequired) {
+%>class <%= componentName %> extends PureComponent {
   state = {
   }
 
@@ -26,10 +29,8 @@ const <%= componentName %> = ({}) => (
 <% } %>
 <% if (propsRequired) { %>
 <%= componentName %>.propTypes = {
-  ,
 };
 <%= componentName %>.defaultProps = {
-  ,
 };
 <% } %>
 export default <%= componentName %>;

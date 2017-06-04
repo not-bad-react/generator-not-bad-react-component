@@ -66,6 +66,11 @@ module.exports = class extends Generator {
       message: 'Whether to add a state?',
       default: true
     }, {
+      type: 'confirm',
+      name: 'specRequired',
+      message: 'Init Jest spec file?',
+      default: true
+    }, {
       type: 'list',
       name: 'stylesheetExtension',
       message: 'Choose stylesheet file extension:',
@@ -95,14 +100,17 @@ module.exports = class extends Generator {
       componentPath,
       componentName,
       jsExtension,
+      specRequired,
       stylesheetExtension
     } = this.props;
 
     const jsFileName = `${componentName}.${jsExtension}`;
     const stylesheetName = `${componentName}.${stylesheetExtension}`;
+    const specFileName = `${componentName}.spec.${jsExtension}`;
     const jsFullPath = path.join(componentPath, componentName, jsFileName);
     const stylesheetFullPath = path.join(componentPath, componentName, stylesheetName);
     const indexFullPath = path.join(componentPath, componentName, 'index.js');
+    const specFullPath = path.join(componentPath, `${componentName}/__tests__/`, specFileName);
 
     this.fs.copyTpl(
       this.templatePath('componentFile'),
@@ -113,6 +121,14 @@ module.exports = class extends Generator {
         stateRequired: this.props.stateRequired,
         needStylesheet: !!this.props.stylesheetExtension,
         stylesheetFile: stylesheetName
+      }
+    );
+
+    specRequired && this.fs.copyTpl(
+      this.templatePath('specFile'),
+      this.destinationPath(specFullPath),
+      {
+        componentName: this.props.componentName
       }
     );
 
