@@ -101,6 +101,8 @@ module.exports = class extends Generator {
       componentName,
       jsExtension,
       specRequired,
+      propsRequired,
+      stateRequired,
       stylesheetExtension
     } = this.props;
 
@@ -116,38 +118,38 @@ module.exports = class extends Generator {
       this.templatePath('componentFile'),
       this.destinationPath(jsFullPath),
       {
-        componentName: this.props.componentName,
-        propsRequired: this.props.propsRequired,
-        stateRequired: this.props.stateRequired,
-        needStylesheet: !!this.props.stylesheetExtension,
+        componentName: componentName,
+        propsRequired: propsRequired,
+        stateRequired: stateRequired,
+        needStylesheet: !!stylesheetExtension,
         stylesheetFile: stylesheetName
       }
     );
 
-    specRequired && this.fs.copyTpl(
-      this.templatePath('specFile'),
-      this.destinationPath(specFullPath),
-      {
-        componentName: this.props.componentName
-      }
-    );
+    specRequired &&
+      this.fs.copyTpl(
+        this.templatePath('specFile'),
+        this.destinationPath(specFullPath),
+        {
+          componentName: componentName
+        }
+      );
 
     this.fs.copyTpl(
       this.templatePath('componentIndexFile'),
       this.destinationPath(indexFullPath),
       {
-        componentName: this.props.componentName
+        componentName: componentName
       }
     );
 
-    if (!!this.props.stylesheetExtension) {
+    stylesheetExtension &&
       this.fs.copyTpl(
         this.templatePath('stylesheetFile'),
         this.destinationPath(stylesheetFullPath),
         {
-          componentName: this.props.componentName
+          componentName: componentName
         }
       );
-    }
   }
 };
